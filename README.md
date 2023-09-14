@@ -3,7 +3,7 @@ An end to end data pipeline that models and visualizes CLTV (Customer Lifetime V
 
 ## Proposed Architecture
 
-![Architecture Preview](https://github.com/raashidsalih/azure-dbx-cltv/blob/main/assets/Architecture.svg)
+![Architecture Preview](https://github.com/raashidsalih/azure-dbx-cltv/blob/main/assets/Architecture.png)
 
 1. Raw training data ingested into databricks following medallion architecture, the basis is Azure Data Lake Storage. Curated data present in Delta Lake.
     - Raw data is stored in bronze tier.
