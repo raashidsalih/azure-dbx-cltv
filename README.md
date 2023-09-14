@@ -2,6 +2,9 @@
 An end to end data pipeline that models and visualizes CLTV (Customer Lifetime Value) and customer segmentation. The project seeks to employ Azure Databricks and other Azure services as its architectural basis. It is currently a work in progress, but the proposed architecure is detailed below.
 
 ## Proposed Architecture
+
+![Architecture Preview](https://github.com/raashidsalih/azure-dbx-cltv/blob/main/assets/Architecture.svg)
+
 1. Raw training data ingested into databricks following medallion architecture, the basis is Azure Data Lake Storage. Curated data present in Delta Lake.
     - Raw data is stored in bronze tier.
     - Move to Silver tier after transformations and feature engineering. Data now present in delta lake.
