@@ -1,5 +1,5 @@
 # Data Pipeline for CLTV and Customer Segmentation Analysis Using Azure Services
-An end to end data pipeline that models and visualizes CLTV (Customer Lifetime Value) and customer segmentation. The project seeks to employ Azure Databricks and other Azure services as its architectural basis. It is currently a work in progress, but the proposed architecure is detailed below.
+An end to end data pipeline that models and visualizes CLTV (Customer Lifetime Value) and customer segmentation. The project seeks to employ Azure Databricks and other Azure services as its architectural basis. It is currently a work in progress, but the proposed architecure is detailed below. This has been adapted from Microsoft's [Modern analytics architecture with Azure Databricks solution](https://learn.microsoft.com/en-us/azure/architecture/solution-ideas/articles/azure-databricks-modern-analytics-architecture).
 
 ## Proposed Architecture
 
@@ -12,7 +12,7 @@ An end to end data pipeline that models and visualizes CLTV (Customer Lifetime V
 2. Two Machine Learning models trained using databricks services:
     - CLTV estimation - regression problem, estimate the total revenue that a customer will generate for the company over their entire relationship. The model can help the company to optimize its marketing and sales efforts by segmenting and targeting customers based on their CLTV.
     - Customer segmentation - clustering problem, The model can help the company to understand its customer base better and tailor its products and services according to each cluster’s needs and preferences.
-3. MLFlow manages MLOps aspect of operation. 
+3. MLFlow manages MLOps aspect of operation.
     - Databricks stores information about models in the MLflow Model Registry.
     - The registry makes models available through batch, streaming, and REST APIs.
 4. New customer data flows through from Azure Data Factory.
@@ -23,8 +23,10 @@ An end to end data pipeline that models and visualizes CLTV (Customer Lifetime V
     - Aggregations based on final dashboard and metric requirements move it into gold tier
 6. Use PowerBI for visualization and dashboarding
     - Leverage Azure Databricks connector to access data
-7. A possible alternative is to use Azure Analysis Services or Azure Synapse Analytics as a semantic layer between Azure Databricks and Power BI, and use the optimized Synapse connector to export gold data sets out of the data lake.
-8. Additional Azure services provides support in terms of governance and security:
+7. Services can access a singular consistent source of data via Azure Databricks SQL Analytics.
+8. A possible alternative is to use Azure Analysis Services or Azure Synapse Analytics as a semantic layer between Azure Databricks and Power BI, and use the optimized Synapse connector to export gold data sets out of the data lake.
+9. Additional Azure services provides support in terms of governance and security:
     - Azure key vault for storing secrets
     - Azure devops for CI/CD and version control. Could potentially use Databricks Repos for the same.
     - Azure Monitor for resource based telemetry.
+    - Can consider Databrick's Unity Catalog and Delta Sharing for governance specifically.
